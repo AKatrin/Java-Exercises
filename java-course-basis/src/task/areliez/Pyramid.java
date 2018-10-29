@@ -1,7 +1,5 @@
 package task.areliez;
 
-import java.util.Scanner;
-
 public class Pyramid {
     public static final String MESSAGE_TO_DRAW_PYRAMID = "Enter a positive whole number to draw the pyramid";
     public static final String NUMBER_GREATER_THAN_0_AND_LESS_THAN_51 = "You should a number greater than 0 and less than 51";
@@ -42,8 +40,4 @@ public class Pyramid {
             System.out.println(MESSAGE_TO_DRAW_PYRAMID);
             System.out.println(ENTER_A_NEGATIVE_WHOLE_NUMBER_TO_EXIT);
     }
-
-
-
-
 }

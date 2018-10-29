@@ -1,7 +1,6 @@
 package task.areliez;
 
 import java.util.Scanner;
-
 import static task.areliez.Pyramid.*;
 
 public class MainPyramid {
