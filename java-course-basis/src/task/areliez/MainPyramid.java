@@ -1,5 +1,6 @@
 package task.areliez;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static task.areliez.Pyramid.*;
 
@@ -19,6 +20,17 @@ public class MainPyramid {
     }
 
     public static void startToDraw(Pyramid p1, int numberRowEntered, Scanner keyboard) {
+        try {
+            draw(p1, numberRowEntered, keyboard);
+        }catch (InputMismatchException ex){
+            keyboard.next();
+            System.out.println("You should enter only numbers");
+            draw(p1,numberRowEntered,keyboard);
+        }
+
+    }
+
+    private static void draw(Pyramid p1, int numberRowEntered, Scanner keyboard) {
         while (numberRowEntered > -1) {
             p1.draw(p1,numberRowEntered);
             numberRowEntered = keyboard.nextInt();
