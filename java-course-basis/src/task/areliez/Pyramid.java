@@ -9,7 +9,27 @@ public class Pyramid {
 
     public Pyramid(){}
 
+    public void drawRightTriangle(Pyramid p1, int numberRowEntered){
+        System.out.println("The pyramid have " + numberRowEntered + " rows");
+        p1.printRightTriangle(numberRowEntered);
+        printMessages();
+    }
+
+    public void drawPyramid(Pyramid p1, int numberRowEntered){
+        System.out.println("The pyramid have " + numberRowEntered + " rows");
+        p1.printPyramid(numberRowEntered);
+        printMessages();
+    }
+
     public void printPyramid(int numberRow){
+        this.numberRow = numberRow;
+        if (numberRow >= 1 && numberRow <= 50)
+            pyramid(numberRow);
+        else
+            System.out.println(NUMBER_GREATER_THAN_0_AND_LESS_THAN_51);
+    }
+
+    public void printRightTriangle(int numberRow){
         this.numberRow = numberRow;
         if (numberRow >= 1 && numberRow <= 50)
             printAsterisks(1,1);
@@ -30,14 +50,34 @@ public class Pyramid {
                 asterisksByRow--;
             }
             System.out.println();
-            printAsterisks(cantAsterisks+1,row+1);
+            printAsterisks(cantAsterisks + 1,row+1);
         }
     }
 
-    public void draw(Pyramid p1, int numberRowEntered){
-            System.out.println("The pyramid have " + numberRowEntered + " rows");
-            p1.printPyramid(numberRowEntered);
-            System.out.println(MESSAGE_TO_DRAW_PYRAMID);
-            System.out.println(ENTER_A_NEGATIVE_WHOLE_NUMBER_TO_EXIT);
+    private void pyramid(int row){
+        for (int i = 0; i < row; i++) {
+            printCharacter(row,' ',i);
+            printString(i,"* ");
+            System.out.println();
+            }
+
+
+    }
+    private void printString(int i, String character){
+        for (int k = 0; k <= i; k++) {
+            System.out.print(character);
+        }
+    }
+
+    private void printCharacter(int row, char character, int i){
+        for (int j = 0; j < row - i; j++) {
+            System.out.print(character);
+        }
+    }
+
+
+    private void printMessages() {
+        System.out.println(MESSAGE_TO_DRAW_PYRAMID);
+        System.out.println(ENTER_A_NEGATIVE_WHOLE_NUMBER_TO_EXIT);
     }
 }

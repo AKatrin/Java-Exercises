@@ -6,9 +6,12 @@ import static task.areliez.Pyramid.*;
 
 public class MainPyramid {
 
+    public static final String ONLY_POSITIVE_WHOLE_NUMBERS = "You should enter only positive whole numbers";
+    public static final int NUMBER_TO_EXIT = -1;
+
     public static void main(String[] args) {
 
-        Pyramid p1 = new Pyramid();
+        Pyramid pyramid = new Pyramid();
         int numberRowEntered;
 
         Scanner keyboard = new Scanner(System.in);
@@ -16,27 +19,28 @@ public class MainPyramid {
         System.out.println(ENTER_A_NEGATIVE_WHOLE_NUMBER_TO_EXIT);
         numberRowEntered = keyboard.nextInt();
 
-        startToDraw(p1, numberRowEntered, keyboard);
+        startToDraw(pyramid, numberRowEntered, keyboard);
     }
 
-    public static void startToDraw(Pyramid p1, int numberRowEntered, Scanner keyboard) {
+    public static void startToDraw(Pyramid pyramid, int numberRowEntered, Scanner keyboard) {
         try {
-            draw(p1, numberRowEntered, keyboard);
+            draw(pyramid, numberRowEntered, keyboard);
         }catch (InputMismatchException ex){
             keyboard.next();
-            System.out.println("You should enter only numbers");
-            draw(p1,numberRowEntered,keyboard);
+            System.out.println(ONLY_POSITIVE_WHOLE_NUMBERS);
+            numberRowEntered = keyboard.nextInt();
+            startToDraw(pyramid,numberRowEntered,keyboard);
         }
 
     }
 
-    private static void draw(Pyramid p1, int numberRowEntered, Scanner keyboard) {
-        while (numberRowEntered > -1) {
-            p1.draw(p1,numberRowEntered);
+    private static void draw(Pyramid pyramid, int numberRowEntered, Scanner keyboard) {
+        while (numberRowEntered > NUMBER_TO_EXIT) {
+            pyramid.drawPyramid(pyramid,numberRowEntered);
             numberRowEntered = keyboard.nextInt();
         }
 
-        if (numberRowEntered <= -1)
+        if (numberRowEntered <= NUMBER_TO_EXIT)
             System.out.println(EXITED_SUCCESSFULLY);
     }
 }
