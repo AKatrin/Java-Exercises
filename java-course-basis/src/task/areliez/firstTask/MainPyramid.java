@@ -1,8 +1,8 @@
-package task.areliez;
+package task.areliez.firstTask;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import static task.areliez.Pyramid.*;
+import static task.areliez.firstTask.Pyramid.*;
 
 public class MainPyramid {
 

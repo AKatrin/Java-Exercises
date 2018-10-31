@@ -1,4 +1,4 @@
-package task.areliez;
+package task.areliez.firstTask;
 
 public class Pyramid {
     public static final String MESSAGE_TO_DRAW_PYRAMID = "Enter a positive whole number to draw the pyramid";
